@@ -1,0 +1,70 @@
+@import "../../../app/mixins.scss";
+
+.menu {
+  @include f-dir;
+  border-top: 3px solid var(--menu-toggle);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 {
+    top: 50px;
+  }
+
+  .menuItem {
+    @include f-rules;
+    @include f-props;
+    overflow-y: hidden !important;
+    text-decoration: none;
+    color: var(--menu-toggle);
+    background: var(--menu-toggle-secondary);
+  }
+}
+
+.menuButton::before,
+.menuButton::after,
+.menuButton {
+  background-color: var(--menu-toggle);
+  position: absolute;
+  width: 18px;
+  height: 3px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menuButton {
+  &::before {
+    content: "";
+    margin-top: -5px;
+  }
+  &::after {
+    content: "";
+    margin-top: 5px;
+  }
+}
+
+#menuToggle {
+  display: none;
+
+  &:checked {
+    + .menuButtonContainer .menuButton {
+      background: transparent;
+
+      &::before {
+        margin-top: 0;
+        transform: rotate(405deg);
+      }
+
+      &::after {
+        margin-top: 0;
+        transform: rotate(-405deg);
+      }
+    }
+
+    ~ .menu .menuItem {
+      border-bottom: 3px solid var(--menu-toggle);
+      height: 18vh;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+}

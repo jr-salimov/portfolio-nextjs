@@ -1,0 +1,24 @@
+@import "../../app/mixins.scss";
+
+.langChoice {
+  display: flex;
+  justify-content: space-around;
+
+  .link {
+    color: var(--tertiary);
+  }
+
+  .language {
+    @include f-props;
+    background-color: transparent;
+    color: var(--secondary);
+    cursor: pointer;
+    border: none {
+      radius: 8px;
+    }
+
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}

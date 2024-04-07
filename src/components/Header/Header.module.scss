@@ -1,0 +1,92 @@
+@import "../../app/mixins.scss";
+
+.header {
+  @include f-rules(space-between);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: 75px;
+  padding: 25px 45px;
+  background: var(--black-100);
+  z-index: 1;
+  box-shadow: 0 0.3px 0.3px var(--box-shadow);
+
+  .logoMain {
+    @include a-items;
+    gap: 5px;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .closeToggle {
+    display: none;
+  }
+
+  .logoIcon {
+    width: 40px;
+    height: 46px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .switchInput {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .logo,
+  .settings {
+    @include a-items;
+    @include f-props(var(--fz-normal), calc(var(--fw-xbold) - 200));
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+    gap: 0.5rem;
+  }
+
+  .github:hover {
+    @include filter;
+  }
+
+  .settings {
+    @include f-rules;
+    position: relative;
+    z-index: 1;
+
+    .github {
+      display: flex;
+      margin-right: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    @include f-rules(space-between);
+    height: 50px;
+
+    .logo {
+      margin-left: -30px;
+      .logoIcon {
+        width: 20px;
+        height: 23px;
+      }
+    }
+
+    .mobileMenu {
+      display: block !important;
+      margin: {
+        right: -105px;
+        top: 10px;
+      }
+    }
+
+    .settings {
+      display: none !important;
+    }
+  }
+}

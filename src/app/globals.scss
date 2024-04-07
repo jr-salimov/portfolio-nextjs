@@ -1,0 +1,141 @@
+@import "./mixins.scss";
+
+:root {
+  //default colors
+  --primary-bg: rgba(33, 33, 33);
+  --secondary: rgba(255, 255, 255, 1);
+  --tertiary: rgba(255, 145, 0, 1);
+  --black-100: rgba(0, 0, 0, 1);
+  --black-90: rgba(34, 34, 34, 1);
+  --black-50: rgba(170, 170, 170, 1);
+  --color-h1: var(--secondary);
+  --color-h2: 0;
+  --box-shadow: rgba(255, 255, 255, 1);
+  --menu-toggle: var(--secondary);
+  --menu-toggle-secondary: var(--tertiary);
+
+  //font props
+  --fz-normal: 1.5rem;
+  --fz-small: 1.25rem;
+  --fz-h1: 3rem;
+  --fz-h2: 2rem;
+  --fw-xbold: 900;
+  --main-font: "Roboto", sans-serif;
+
+  //sizes
+  --size: 100%;
+  --width-1: 100vw;
+  --height-1: 100vh;
+
+  //settings
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 90%);
+  --fg: hsl(var(--hue), 10%, 10%);
+  --primary: hsl(var(--hue), 90%, 50%);
+  --trans-dur: 0.3s;
+  --trans-timing: cubic-bezier(0.76, 0.05, 0.24, 0.95);
+  --trans-timing-in: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+  --trans-timing-out: cubic-bezier(0.05, 0.76, 0.06, 0.86);
+}
+
+body {
+  background: var(--primary-bg);
+  color: var(--secondary);
+  min-height: var(--height-1);
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+
+  &:has(input:checked) {
+    --primary-bg: rgba(255, 145, 0, 0.15);
+    --secondary: invert(var(--secondary));
+    --color-h1: var(--tertiary);
+    --black-100: rgba(255, 255, 255, 1);
+    --box-shadow: rgba(0, 0, 0, 0.1);
+    --color-h2: -1;
+    --menu-toggle: rgba(255, 145, 0, 1);
+    --menu-toggle-secondary: rgba(255, 255, 255, 1);
+
+    header {
+      box-shadow: 0 1px 1px var(--box-shadow);
+    }
+
+    header > div > a > img,
+    footer > div > a > img,
+    div > div > a > img {
+      @include filter;
+    }
+
+    label > img {
+      @include filter(0, 0, 0, 0deg, 0%);
+    }
+
+    section > div > a > img {
+      @include filter(-1);
+    }
+
+    a > div > img {
+      @include filter;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    nav > a {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        width: var(--size);
+        height: 2px;
+        background-color: rgba(0, 0, 0, 1);
+        transition: transform 0.5s ease-in-out;
+        transform: scaleX(0) {
+          origin: right;
+        }
+      }
+      &:hover::before {
+        transform: scaleX(1) {
+          origin: left;
+        }
+      }
+    }
+  }
+}
+
+input {
+  color: var(--fg);
+  font: 1rem/1.5 var(--main-font);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--main-font);
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-300px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --fz-h1: 2rem;
+    --fz-h2: 1.5rem;
+    --fz-normal: 1rem;
+  }
+}

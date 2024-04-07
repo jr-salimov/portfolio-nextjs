@@ -1,0 +1,52 @@
+@import "../../app/mixins.scss";
+
+.eachLetter {
+  color: var(--tertiary);
+  display: inline-block;
+
+  &:hover {
+    color: var(--secondary);
+    animation: rubber 1s;
+  }
+}
+
+.gap {
+  display: inline-block;
+  width: 10px;
+}
+
+@media (max-width: 768px) {
+  .eachLetter {
+    font-size: var(--fz-h2);
+  }
+}
+
+@keyframes rubber {
+  0% {
+    transform: scaleX(1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}

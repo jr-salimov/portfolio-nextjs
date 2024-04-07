@@ -1,0 +1,123 @@
+@import "../../app/mixins.scss";
+
+.wrapper {
+  width: var(--size);
+
+  .skillsText {
+    gap: 10px;
+
+    .small {
+      font-size: var(--fz-small);
+      color: var(--black-50);
+    }
+
+    .title {
+      @include f-props(var(--fz-h1), var(--fw-xbold));
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        color: var(--tertiary);
+        cursor: pointer;
+      }
+    }
+
+    .description {
+      font-size: var(--fz-normal);
+    }
+
+    .link {
+      text-decoration: none;
+      color: var(--tertiary);
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .langs {
+    @include f-rules;
+    font-size: var(--fz-normal);
+    flex-wrap: wrap;
+    gap: 48px;
+
+    .skillEl a {
+      @include column-aic;
+      text-decoration: none;
+      color: var(--secondary);
+      text-transform: uppercase;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    @include margin;
+    --fw-xbold: 400;
+
+    .skillsText {
+      text-align: left;
+      max-width: 90vw;
+
+      .title {
+        line-height: 0.8;
+        margin-bottom: 12px;
+      }
+
+      .small {
+        display: none;
+      }
+
+      .description {
+        max-width: 90vw;
+      }
+    }
+
+    .langs {
+      justify-content: flex-start;
+      margin-top: 30px;
+      max-width: 90vw;
+
+      .langName {
+        @include f-props(var(--fz-small));
+      }
+
+      .skillEl a {
+        .langIcon {
+          object-fit: contain;
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    // @include margin;
+    @include f-rules;
+    flex-direction: column;
+    gap: 35px;
+    flex-wrap: wrap;
+
+    .skillsText {
+      @include column-aic;
+      text-align: center;
+      width: 45vw;
+    }
+    .langs {
+      max-width: 40vw;
+
+      .langIcon {
+        object-fit: contain;
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "../../app/mixins.scss";
+
+.wrapper {
+  .title {
+    @include f-props(var(--fz-h1));
+  }
+
+  .description {
+    font-size: var(--fz-normal);
+
+    .link {
+      text-decoration: none;
+      color: var(--tertiary);
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .email {
+    @include f-props(var(--fz-h2));
+    @include justify;
+    text-decoration: none;
+    color: var(--secondary);
+
+    .mailIcon {
+      margin-right: 18px;
+      width: 40px;
+      height: 40px;
+
+      &:hover {
+        @include filter;
+        transition: all 0.18s ease-in-out;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-top: 50px;
+
+    .title {
+      text-align: left;
+    }
+
+    .description {
+      max-width: 90vw;
+      .email {
+        --fz-h2: 1.5rem;
+        .mailIcon {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 35%;
+    text-align: center;
+  }
+}

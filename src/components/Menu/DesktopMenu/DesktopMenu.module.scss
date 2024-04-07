@@ -1,0 +1,37 @@
+@import "../../../app/mixins.scss";
+
+.navigation {
+  @include a-items;
+  @include f-props(var(--fz-normal), calc(var(--fw-xbold) - 200));
+  position: relative;
+  gap: 2.5rem;
+
+  margin: {
+    left: 30px;
+    right: 30px;
+    top: 10px;
+  }
+
+  .link {
+    color: var(--secondary);
+    position: relative;
+    text-decoration: none;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: var(--size);
+      height: 2px;
+      background-color: var(--secondary);
+      transition: transform 0.5s ease-in-out;
+      transform: scaleX(0) {
+        origin: right;
+      }
+    }
+    &:hover::before {
+      transform: scaleX(1) {
+        origin: left;
+      }
+    }
+  }
+}

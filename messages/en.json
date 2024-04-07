@@ -1,0 +1,40 @@
+{
+  "Menu": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+
+  "Home": {
+    "title": "Front-End Developer",
+    "description": "Resolving design problems, building smart user interfaces and useful interactions, developing rich web applications and seamless web experiences.",
+    "nextPage": "About me"
+  },
+
+  "About": {
+    "greeting": "Hi, I'm Atoullo,",
+    "job": "Web Developer",
+    "description": "Professionally connected with the web development industry. Problem solver, well-organised person, loyal freelancer with high attention to detail. Fan of Football, debate games, chess, and coding of course. Interested in the entire frontend spectrum and working on ambitious projects with interesting people.",
+    "position": "Front-End Developer / Next-JS Fan"
+  },
+
+  "Skills": {
+    "title": "Skills & Experience",
+    "description1": "The main area of expertise is front end development (client side of the web). HTML, CSS, JS, building small and medium web applications with Vue or React, custom plugins, features, animations, and coding interactive layouts. Visit my",
+    "description2": "for more details.",
+    "quote": "A PROBLEM IS A CHANCE FOR YOU TO DO YOUR BEST."
+  },
+
+  "Projects": {
+    "title": "Portfolio & Previous Projects",
+    "description": "I have built various different projects to fit different aspects of the client's business. If you want to see more examples of my work than the ones showcased in this site, please contact me!",
+    "projects": "See Projects"
+  },
+
+  "Contacts": {
+    "title": "Contacts",
+    "description": "What would you do if you had a software expert available at yourfingertips? Want to start new project? Or just say hey. You can also follow me on"
+  }
+}

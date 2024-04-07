@@ -1,0 +1,12 @@
+@import "../../app/mixins.scss";
+
+.code_graph {
+  .path:global {
+    transition: all 0.3s ease-in-out;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  &:hover path:not(#path3776):not(#path3780):not(#path3772) {
+    fill: var(--tertiary);
+  }
+}

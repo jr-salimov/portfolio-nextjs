@@ -1,0 +1,62 @@
+@import "../../app/mixins.scss";
+
+.wrapper {
+  width: var(--size);
+
+  .title {
+    .name {
+      @include f-props(var(--fz-h2));
+      @include filter(var(--color-h2), 0, 0);
+    }
+
+    .position {
+      @include f-props(var(--fz-h1));
+    }
+
+    .small {
+      font-size: var(--fz-small);
+      color: var(--black-50);
+    }
+  }
+
+  .description {
+    font-size: var(--fz-normal);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    @include margin;
+
+    .name,
+    .position {
+      @include f-props(var(--fz-h2));
+      line-height: 0.8;
+    }
+
+    .small {
+      display: none;
+    }
+
+    .description {
+      max-width: 90vw;
+      font-size: var(--fz-normal);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    // @include margin;
+    @include f-rules(space-around);
+    width: var(--size);
+
+    .title {
+      width: 35rem;
+    }
+
+    .description {
+      width: 35rem;
+    }
+  }
+}
